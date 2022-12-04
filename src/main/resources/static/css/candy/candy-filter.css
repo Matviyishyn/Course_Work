@@ -1,0 +1,117 @@
+.filter-box{
+    width: 600px;
+    margin: 16px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-box .toggle-row{
+    display: flex;
+    justify-content: space-around;
+    gap: 8px;
+}
+
+.toggle-row div{
+    width: 40%;
+}
+
+.search input{
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid var(--purple);
+    font-size: 16px;
+
+    text-align: center;
+}
+
+.filter button {
+    height: 100%;
+    width: 100%;
+
+    border: 1px solid var(--purple);
+    border-radius: 0;
+
+    font-size: 16px;
+}
+
+.filter button:hover{
+    color: #fff;
+    background-color: var(--purple);
+}
+
+.filter-box form{
+    width: 100%;
+    padding: 16px;
+    margin: 16px 0;
+
+    border: 2px solid var(--purple);
+    border-radius: 5px;
+}
+.filter-form-box {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.filter-form-box div{
+    width: 100%;
+    padding: 0 16px;
+}
+
+.filter-box form.hidden{
+    display: none;
+}
+
+.filter-input-box{
+    display: flex;
+    gap: 8px;
+}
+
+.filter-input-box div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.filter-input-box div label{
+    align-self: flex-start;
+}
+
+.filter-input-box input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--purple);
+    font-size: 16px;
+
+    align-self: flex-start;
+}
+
+.filter-box form button{
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--purple);
+
+    font-size: 16px;
+}
+
+.filter-box form button:hover{
+    background-color: var(--purple);
+    color: #fff;
+}
+
+.sort-input-box{
+    display: flex;
+    justify-content: space-between;
+}
+
+.sort-input-box div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}

@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="header">
+    <header>
+        <div class="content">
+            <div class="nav-bar">
+                <div class="title">
+                    <a th:href="@{/}"><h1>SweetGift</h1></a>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a th:href="@{/candy}">Candies</a></li>
+                        <li><a th:href="@{/gift}">Gifts</a></li>
+                        <li><a th:href="@{/gift/new}">New Gift</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+</div>

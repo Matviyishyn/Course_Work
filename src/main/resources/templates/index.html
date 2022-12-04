@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
+
+    <title>SweetGift</title>
+</head>
+<body>
+    <header th:replace="fragments/header.html :: header">
+    </header>
+    <main>
+        <div class="content">
+            <div class="buttons">
+                <a th:href="@{/candy}"><button class="candy btn">Candies</button></a>
+                <a th:href="@{/gift}"><button class="candy btn">Gifts</button></a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+</html>

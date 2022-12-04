@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,400&display=swap'); */
+
+:root{
+    --main-color: #393939;
+    --background-color: #fff;
+    --purple: #6524d5;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #393939;
+}
+
+li{
+    list-style-type: none;
+}
+
+body{
+    min-height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Lato'; */
+    color: #393939;
+}
+
+main{
+flex-grow: 1;
+}
+
+.content{
+    padding: 0 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btn{
+    background: #fff;
+    border: 2px solid #393939;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    cursor: pointer;
+    border: 2px solid var(--purple);
+}
+
+.inp{
+    width: 250px;
+    padding: 10px;
+}

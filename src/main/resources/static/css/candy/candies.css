@@ -1,0 +1,161 @@
+/*
+Add candy button
+*/
+#add-candy{
+    width: 100%;
+    margin: 50px;
+
+    display: flex;
+    justify-content: center;
+}
+
+#add-candy-btn{
+    width: 500px;
+    padding: 10px;
+
+    border: 2px solid var(--purple);
+
+    font-size: 16px;
+}
+
+#add-candy-btn:hover{
+    color: #fff;
+    background-color: var(--purple);
+}
+
+/*
+    Add candy window
+*/
+.add-candy-window{
+    /* display: none;
+    visibility: hidden; */
+    height: 0;
+    overflow: hidden;
+}
+
+.add-candy-window.visible{
+    height: auto;
+    padding: 16px 50px;
+    margin: 50px;
+
+    display: flex;
+    visibility: visible;
+    flex-direction: column;
+    align-items: center;
+
+    border: 2px solid var(--purple);
+    border-radius: 10px;
+
+    position: relative;
+}
+
+.add-candy-window .close{
+    display: none;
+    visibility: hidden;
+}
+
+.add-candy-window .close.visible{
+    visibility: visible;
+
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    width: 50px;
+    height: 50px;
+
+    background: url(../../icons/close.svg) no-repeat center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.add-candy-window .close:hover{
+    transform: rotate(90deg);
+}
+
+.add-candy-window form{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-candy-window form > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.add-candy-window form label{
+    width: 120px;
+    margin-left: 16px;
+    display: inline-flex;
+    align-self: center;
+}
+
+.add-candy-window form input{
+    padding: 10px;
+    border: 1px solid var(--purple);
+    font-size: 16px;
+
+    align-self: flex-end;
+}
+
+.add-candy-window form .number-input-box{
+    justify-content: space-between;
+}
+
+.add-candy-window form .number-input{
+    width: 70px;
+    border: none;
+    border-bottom: 1px solid var(--purple);
+
+    text-align: right;
+}
+
+.add-candy-window form .number-input:focus{
+    outline: none;
+}
+
+.add-candy-window form button{
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--purple);
+
+    font-size: 16px;
+}
+
+.add-candy-window form button:hover{
+    background-color: var(--purple);
+    color: #fff;
+}
+
+
+/*
+candy list
+*/
+.available-candies{
+    margin: 50px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.available-candies .available-candies-title{
+    margin-bottom: 24px;
+}
+
+.candy-list{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    gap: 16px;
+}

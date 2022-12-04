@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/header.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/candy/candies.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/candy/candy.css}" rel="stylesheet" type="text/css">
+    <link th:href="@{/css/candy/candy-filter.css}" rel="stylesheet" type="text/css">
+    <title>SweetGift</title>
+</head>
+<body >
+    <header th:replace="fragments/header.html :: header">
+    </header>
+
+    <main>
+        <div class="content">
+
+            <div id="add-candy">
+                <button id="add-candy-btn" class="btn">Add new candy</button>
+            </div>
+
+            <div class="add-candy-window">
+                <div class="close"></div>
+                <h2>Enter candy info</h2>
+
+                <form action="" th:action="@{/candy/new}" class="add-candy-form" method="post">
+                    <div class="title-box">
+                        <label>Candy name:</label>
+                        <input type="text" name="name" autocomplete="off">
+                    </div>
+                    
+                    <div class="author-box">
+                        <label>Brand:</label>
+                        <input type="text" name="brand" autocomplete="off">
+                    </div>
+    
+                    <div class="image-box">
+                        <label>Image link:</label>
+                        <input type="text" name="imageUrl" autocomplete="off">
+                    </div>
+    
+                    <div class="price-box number-input-box">
+                        <label>Price:</label>
+                        <div>
+                            <input type="number" step="0.01" min="0" name="price" autocomplete="off" class="number-input">
+                            <span>&euro;</span>
+                        </div>
+                    </div>
+    
+                    <div class="weight-box number-input-box">
+                        <label>Weight:</label>
+                        <div>
+                            <input type="number" min="0" name="weight" autocomplete="off" class="number-input">
+                            <span>g</span>
+                        </div>
+                    </div>
+    
+                    <div class="sugar-box number-input-box">
+                        <label>Sugar amount:</label>
+                        <div>
+                            <input type="number" min="0" name="sugar" autocomplete="off" class="number-input">
+                            <span>g</span>
+                        </div>
+                    </div>
+                        
+                    <button class="submit-candy btn" type="reset">Submit</button>
+                </form>
+            </div>
+
+            <div class="available-candies">
+                <h1 class="available-candies-title">Available Candies</h1>
+
+                <div class="filter-box">
+                    <div class="toggle-row">
+                        <div class="search">
+                            <input type="text" placeholder="Name or brand" class="search-input">
+                        </div>
+
+                        <div class="filter">
+                            <button class="btn">Filters</button>
+                        </div>
+                    </div>
+
+                    <form th:action="@{/candy/filter}" class="filter-form hidden">
+                        <div class="filter-form-box" th:replace="fragments/candy_filter.html :: filter-form-box">
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="candy-list">
+                    <div class="candy" th:each="candy :${candyList}" th:attr="data-id=${candy.getId().toString()}">
+                        <div class="ud-box">
+                            <div class="update"></div>
+                            <div class="delete"></div>
+                        </div>
+                    
+                        <div class="img-block">
+                            <img th:src="${candy.getImageUrl()}" alt="">
+                        </div>
+                        
+                        <div class="info">
+                            <h3 class="name" th:text="${candy.getName()}">Christmas pack</h3>
+                            <h4 class="brand" th:text="${candy.getBrand()}">M&M's</h4>
+
+                            <div class="properties">
+                                <div class="property">
+                                    <span>Price:</span>
+                                    <span><span class="price" th:text="${candy.getPrice()}">3.99</span>&euro;</span>
+                                </div>
+
+                                <div class="property">
+                                    <span>Weight:</span>
+                                    <span><span class="weight" th:text="${candy.getWeight()}">45</span>g</span>
+                                </div>
+
+                                <div class="property">
+                                    <span>Sugar amount:</span>
+                                    <span><span class="sugar-amount" th:text="${candy.getSugar()}">15</span>g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script th:src="@{/js/candy/candy.js}"></script>
+    <script th:src="@{/js/candy/filter.js}"></script>
+</body>
+</html>

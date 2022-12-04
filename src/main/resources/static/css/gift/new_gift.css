@@ -1,0 +1,72 @@
+.main-title{
+    margin: 50px;
+}
+
+.make-gift-window{
+    display: flex;
+    flex-direction: column;
+}
+
+.make-gift-window form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+}
+
+
+.gift-properties {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gift-properties > div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.gift-properties label{
+    width: 120px;
+    display: inline-flex;
+    align-self: center;
+}
+
+.gift-properties input{
+    padding: 10px;
+    border: 1px solid var(--purple);
+    font-size: 16px;
+
+    align-self: flex-end;
+}
+
+.make-gift-window form button{
+    width: 100%;
+    padding: 8px;
+    border: 2px solid var(--purple);
+
+    font-size: 16px;
+}
+
+.make-gift-window form button:hover{
+    background-color: var(--purple);
+    color: #fff;
+}
+
+.make-gift-window form .candy-list-block{
+    display: none;
+}
+
+.candies-title{
+    margin-top: 50px;
+}
+
+.available-candies-title{
+    margin-top: 16px;
+}

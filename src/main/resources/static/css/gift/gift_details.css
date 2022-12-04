@@ -1,0 +1,34 @@
+.gift-details{
+    width: 100%;
+    margin: 50px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gift-details h1{
+    display: flex;
+    gap: 16px;
+    margin-bottom: 50px;
+}
+
+.properties{
+    width: 60%;
+    margin-bottom: 24px;
+    
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.properties .property{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+}
+
+.properties .property.total-price{
+    font-size: larger;
+    font-weight: bold;
+}

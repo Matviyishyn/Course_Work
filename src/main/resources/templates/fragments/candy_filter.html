@@ -1,0 +1,61 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="filter-form-box" class="filter-form-box">
+    <div class="filter-price">
+        <h3>Price:</h3>
+        <div class="filter-price-input filter-input-box">
+            <div class="filter-min">
+                <label for="price-min">Min:</label>
+                <input id="price-min" name="priceMin" type="number" step="0.01">
+            </div>
+            <div class="filter-max">
+                <label for="price-max">Max:</label>
+                <input id="price-max" name="priceMax" type="number" step="0.01">
+            </div>
+        </div>
+    </div>
+    <div class="filter-weight">
+        <h3>Weight:</h3>
+        <div class="filter-weight-input filter-input-box">
+            <div class="filter-min">
+                <label for="weight-min">Min:</label>
+                <input  id="weight-min" name="weightMin" type="number">
+            </div>
+            <div class="filter-min">
+                <label for="weight-max">Max:</label>
+                <input  id="weight-max" name="weightMax" type="number">
+            </div>
+        </div>
+    </div>
+    <div class="filter-sugar">
+        <h3>Sugar:</h3>
+        <div class="filter-sugar-input  filter-input-box">
+            <div class="filter-min">
+                <label for="sugar-min">Min:</label>
+                <input  id="sugar-min" name="sugarMin" type="number">
+            </div>
+            <div class="filter-min">
+                <label for="sugar-max">Max:</label>
+                <input  id="sugar-max" name="sugarMax" type="number">
+            </div>
+        </div>
+    </div>
+    <div class="sort-box">
+        <h3>Sort by:</h3>
+        <div class="sort-input-box">
+            <div>
+                <label for="sort-price">Price</label>
+                <input type="radio" name="sort" value="price" id="sort-price">
+            </div>
+            <div>
+                <label for="sort-weight">Weight</label>
+                <input type="radio" name="sort" value="weight" id="sort-weight">
+            </div>
+            <div>
+                <label for="sort-sugar">Sugar</label>
+                <input type="radio" name="sort" value="sugar" id="sort-sugar">
+            </div>
+        </div>
+
+    </div>
+    <button class="btn" type="submit">Filter</button>
+</div>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/gift/gift.css}">
+    <title>SweetGift</title>
+</head>
+<body >
+    <header th:replace="fragments/header.html :: header">
+    </header>
+
+    <main>
+        <div class="content">
+
+            <div id="make-gift">
+                <a th:href="@{/gift/new}"><button id="make-gift-btn" class="btn">Make new gift</button></a>
+            </div>
+
+            <div class="available-gifts">
+                <h1>Your gifts</h1>
+
+                <div class="gift-list">
+                    <div class="gift" th:each="gift :${giftList}" th:attr="data-id=${gift.getId().toString()}">
+                        <div class="info">
+                            <div class="properties">
+                                <div class="property">
+                                    <span>Id:</span>
+                                    <span class="gift-id" th:text="${gift.getId().toString().substring(0, 7)}">#ca3151b1</span>
+                                </div>
+
+                                <div class="property">
+                                    <span>Receiver:</span>
+                                    <span class="receiver" th:text="${gift.getReceiver()}">Jane Doe</span>
+                                </div>
+                                <div class="property">
+                                    <span>Order date:</span>
+                                    <span class="order-date" th:text="${gift.getOrderDate()}"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gift-options">
+                            <button class="details btn">Details</button>
+                            <button class="edit btn">Edit</button>
+                            <button class="delete btn">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+    <script th:src="@{/js/gift/gift.js}"></script>
+</body>
+</html>

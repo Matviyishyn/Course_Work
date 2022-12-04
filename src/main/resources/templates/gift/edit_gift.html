@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candy.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candies.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candy-filter.css}">
+    <link rel="stylesheet" th:href="@{/css/gift/new_gift.css}">
+    <link rel="stylesheet" th:href="@{/css/gift/gift_candy.css}">
+
+    <title>SweetGift</title>
+</head>
+<body >
+    <header th:replace="fragments/header.html :: header">
+    </header>
+
+    <main>
+        <div class="content">
+            <h1 class="main-title">Edit gift</h1>
+
+            <div class="make-gift-window">
+                <form class="gift-form" th:action="@{'/gift/edit/' + ${gift.getId()}}" method="post">
+                    <div class="gift-properties">
+                        <div class="receiver-box">
+                            <label>Receiver:</label>
+                            <input type="text" name="receiver" autocomplete="off" th:value="${gift.getReceiver()}">
+                        </div>
+
+                        <div class="address-box">
+                            <label>Delivery address:</label>
+                            <input type="text" name="address" autocomplete="off" th:value="${gift.getAddress()}">
+                        </div>
+                    </div>
+
+                    <div class="candy-list-block">
+                        <textarea class="add-candies-area" name="addCandies" cols="30" rows="10">test text</textarea>
+                        <textarea class="delete-candies-area" name="deleteCandies" cols="30" rows="10">test text</textarea>
+                    </div>
+
+                    <button class="submit-form btn" type="submit">Submit</button>
+                </form>
+            </div>
+            <div class="gift-candy-list available-candies">
+                <h3 class="remove-candies candies-title">Select candies you want to remove</h3>
+                <div class="candy-list remove-candy-list">
+                    <div class="candy" th:each="candy :${gift.getCandyList()}" th:attr="data-id=${candy.getId().toString()}">
+                        <div class="img-block">
+                            <img th:src="${candy.getImageUrl()}" alt="">
+                        </div>
+                        <div class="info">
+                            <h3 class="name" th:text="${candy.getName()}">Christmas pack</h3>
+                            <h4 class="brand" th:text="${candy.getBrand()}">M&M's</h4>
+                            <div class="properties">
+                                <div class="property">
+                                    <span>Price:</span>
+                                    <span><span class="price" th:text="${candy.getPrice()}">3.99</span>&euro;</span>
+                                </div>
+                                <div class="property">
+                                    <span>Weight:</span>
+                                    <span><span class="weight" th:text="${candy.getWeight()}">45</span>g</span>
+                                </div>
+                                <div class="property">
+                                    <span>Sugar amount:</span>
+                                    <span><span class="sugar-amount" th:text="${candy.getSugar()}">15</span>g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="available-candies">
+                <h3 class="available-candies-title candies-title">Select candies you want to add to gift</h3>
+                <div class="filter-box">
+                    <div class="toggle-row">
+                        <div class="search">
+                            <input type="text" placeholder="Name or brand" class="search-input">
+                        </div>
+                    </div>
+                </div>
+                <div class="candy-list add-candy-list">
+                    <div class="candy" th:each="candy :${candyList}" th:attr="data-id=${candy.getId().toString()}">
+                        <div class="img-block">
+                            <img th:src="${candy.getImageUrl()}" alt="">
+                        </div>
+                        <div class="info">
+                            <h3 class="name" th:text="${candy.getName()}">Christmas pack</h3>
+                            <h4 class="brand" th:text="${candy.getBrand()}">M&M's</h4>
+                            <div class="properties">
+                                <div class="property">
+                                    <span>Price:</span>
+                                    <span><span class="price" th:text="${candy.getPrice()}">3.99</span>&euro;</span>
+                                </div>
+                                <div class="property">
+                                    <span>Weight:</span>
+                                    <span><span class="weight" th:text="${candy.getWeight()}">45</span>g</span>
+                                </div>
+                                <div class="property">
+                                    <span>Sugar amount:</span>
+                                    <span><span class="sugar-amount" th:text="${candy.getSugar()}">15</span>g</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script th:src="@{/js/candy/filter.js}"></script>
+    <script th:src="@{/js/gift/edit_gift.js}"></script>
+</body>
+</html>

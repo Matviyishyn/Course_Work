@@ -1,0 +1,24 @@
+.candy{
+    width: 200px;
+    height: 340px;
+}
+
+.candy.hidden{
+    display: none;
+}
+
+.candy.selected{
+    border: 2px solid var(--purple);
+}
+
+.candy .ud-box{
+    display: none;
+}
+
+.candy .img-block{
+    height: 35%;
+}
+
+.candy .info{
+    height: 65%;
+}

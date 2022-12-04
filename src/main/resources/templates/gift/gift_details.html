@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candy.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candies.css}">
+    <link rel="stylesheet" th:href="@{/css/candy/candy-filter.css}">
+    <link rel="stylesheet" th:href="@{/css/gift/gift_candy.css}">
+    <link rel="stylesheet" th:href="@{/css/gift/gift_details.css}">
+    <title>SweetGift</title>
+</head>
+<body >
+    <header th:replace="fragments/header.html :: header">
+    </header>
+
+    <main>
+        <div class="content">
+            <div class="gift-details">
+                <h1>ID<span class="gift-id" th:text="${gift.getId()}">#ca3151b1</span></h1>
+                <div class="properties">
+                    <div class="property">
+                        <span>Receiver:</span>
+                        <span class="receiver" th:text="${gift.getReceiver()}">Jane Doe</span>
+                    </div>
+
+                    <div class="property">
+                        <span>Delivery address:</span>
+                        <span class="address" th:text="${gift.getAddress()}">Engleford St</span>
+                    </div>
+
+                    <div class="property">
+                        <span>Order date:</span>
+                        <span class="order-date" th:text="${gift.getOrderDate()}">2021-11-10</span>
+                    </div>
+
+                    <div class="property">
+                        <span>Weight:</span>
+                        <span><span class="weight" th:text="${weight}">599</span>g</span>
+                    </div>
+
+                    <div class="property total-price">
+                        <span>Total price:</span>
+                        <span><span class="total-price" th:text="${#numbers.formatDecimal(price, 0, 'COMMA', 2, 'POINT')}">59</span>&euro;</span>
+                    </div>
+                </div>
+
+                <div class="available-candies">
+                    <h1 class="available-candies-title">Candies</h1>
+                    <div class="filter-box">
+                        <div class="toggle-row">
+                            <div class="search">
+                                <input type="text" placeholder="Name or brand" class="search-input">
+                            </div>
+
+                            <div class="filter">
+                                <button class="btn">Filters</button>
+                            </div>
+                        </div>
+
+                        <form th:action="@{'/gift/' + ${gift.getId()} + '/filter'}" class="filter-form hidden">
+                            <div class="filter-form-box" th:replace="fragments/candy_filter.html :: filter-form-box">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="candy-list">
+                        <div class="candy" th:each="candy :${gift.getCandyList()}" th:attr="data-id=${candy.getId().toString()}">
+                            <div class="img-block">
+                                <img th:src="${candy.getImageUrl()}" alt="">
+                            </div>
+                            <div class="info">
+                                <h3 class="name" th:text="${candy.getName()}">Christmas pack</h3>
+                                <h4 class="brand" th:text="${candy.getBrand()}">M&M's</h4>
+                                <div class="properties">
+                                    <div class="property">
+                                        <span>Price:</span>
+                                        <span><span class="price" th:text="${candy.getPrice()}">3.99</span>&euro;</span>
+                                    </div>
+                                    <div class="property">
+                                        <span>Weight:</span>
+                                        <span><span class="weight" th:text="${candy.getWeight()}">45</span>g</span>
+                                    </div>
+                                    <div class="property">
+                                        <span>Sugar amount:</span>
+                                        <span><span class="sugar-amount" th:text="${candy.getSugar()}">15</span>g</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
+
+    <script th:src="@{/js/candy/filter.js}"></script>
+</body>
+</html>
